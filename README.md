@@ -1,102 +1,75 @@
-Contact Form Application
+# Contact Form Application
+
 This project is a simple contact form application deployed on Vercel. The application is designed to demonstrate the integration of monitoring and logging using Prometheus, Grafana, and Vercel's built-in analytics and logging tools.
 
-Table of Contents
-Features
-Getting Started
-Prerequisites
-Installation
-Monitoring Setup
-Prometheus Configuration
-Grafana Integration
-Logging
-Deployment
-Contributing
-License
-Features
-Contact Form: Allows users to submit their contact information and message.
-Monitoring: Collects metrics using Prometheus and visualizes them in Grafana.
-Logging: Centralized logging for easier debugging and analysis, integrated with Vercel's logging and analytics.
-Getting Started
-Prerequisites
+## Table of Contents
+
+- [Contact Form Application](#contact-form-application)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Monitoring Setup](#monitoring-setup)
+    - [Prometheus Configuration](#prometheus-configuration)
+
+## Features
+
+- **Contact Form:** Allows users to submit their contact information and message.
+- **Monitoring:** Collects metrics using Prometheus and visualizes them in Grafana.
+- **Logging:** Centralized logging for easier debugging and analysis, integrated with Vercel's logging and analytics.
+
+## Getting Started
+
+### Prerequisites
+
 Before you begin, ensure you have the following installed on your machine:
 
-Node.js
-Vercel CLI
-Prometheus
-Grafana
-Installation
-Clone the repository:
+- [Node.js](https://nodejs.org/en/download/)
+- [Vercel CLI](https://vercel.com/docs/cli)
+- [Prometheus](https://prometheus.io/download/)
+- [Grafana](https://grafana.com/grafana/download)
 
-bash
-Copier le code
-git clone https://github.com/yourusername/contact-form-app.git
-cd contact-form-app
-Install dependencies:
+### Installation
 
-bash
-Copier le code
-npm install
-Run the application locally:
+1. **Clone the repository:**
 
-bash
-Copier le code
-npm start
-The application should now be running on http://localhost:3000.
+    ```bash
+    git clone https://github.com/yourusername/contact-form-app.git
+    cd contact-form-app
+    ```
 
-Monitoring Setup
-Prometheus Configuration
-Set up Prometheus:
+2. **Install dependencies:**
 
-Install Prometheus on your local machine or server.
+    ```bash
+    npm install
+    ```
 
-Create or modify the prometheus.yml configuration file to include the following:
+3. **Run the application locally:**
 
-yaml
-Copier le code
-scrape_configs:
-  - job_name: 'vercel_app'
-    static_configs:
-      - targets: ['https://contact-form-pi-ecru.vercel.app/metrics']
-Start Prometheus:
+    ```bash
+    npm start
+    ```
 
-bash
-Copier le code
-./prometheus --config.file=prometheus.yml
-Prometheus will now scrape the metrics from your deployed application.
+    The application should now be running on `http://localhost:3000`.
 
-Grafana Integration
-Install and start Grafana.
+## Monitoring Setup
 
-Add Prometheus as a data source:
+### Prometheus Configuration
 
-Go to Configuration > Data Sources.
-Add a new data source and select Prometheus.
-Set the URL to your Prometheus server, typically http://localhost:9090.
-Create dashboards to visualize your metrics:
+1. **Set up Prometheus:**
 
-Use the provided templates or create your own dashboards to monitor your application's performance.
-Logging
-Since the application is deployed on Vercel, you can take advantage of Vercel's built-in logging and analytics. The logs can be accessed directly from the Vercel dashboard:
+   - Install Prometheus on your local machine or server.
+   - Create or modify the `prometheus.yml` configuration file to include the following:
 
-Vercel Logs: Navigate to your project on Vercel, then go to the "Functions" tab to see real-time logs.
-Vercel Analytics: Set up Vercel Analytics from the dashboard for deeper insights into your application's traffic and performance.
-Deployment
-To deploy the application on Vercel:
+     ```yaml
+     scrape_configs:
+       - job_name: 'vercel_app'
+         static_configs:
+           - targets: ['https://contact-form-pi-ecru.vercel.app/metrics']
+     ```
 
-Deploy using Vercel CLI:
+2. **Start Prometheus:**
 
-bash
-Copier le code
-vercel
-Follow the prompts to deploy your project.
-
-Alternatively, deploy directly from GitHub:
-
-Connect your GitHub repository to Vercel.
-Push your changes to the main branch, and Vercel will automatically deploy the latest version.
-Contributing
-If you'd like to contribute to this project, please fork the repository and use a feature branch. Pull requests are welcome.
-
-License
-This project is open source and available under the MIT License.
+   ```bash
+   ./prometheus --config.file=prometheus.yml
