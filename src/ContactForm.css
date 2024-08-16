@@ -1,12 +1,40 @@
 /* ContactForm.css */
 
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Occupation de toute la hauteur de la page */
+}
+
+.image-section {
+  flex: 1; /* Utiliser la moitié de l'espace */
+  background-color: #f0f0f0; /* Couleur de fond pour tester la section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-section img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.form-section {
+  flex: 1; /* Utiliser l'autre moitié de l'espace */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
   background-color: #f9f9f9;
+}
+
+form {
+  max-width: 100%; /* Utiliser toute la largeur disponible */
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 form label {
@@ -65,7 +93,8 @@ form p {
   font-weight: bold;
   margin-top: 15px;
 }
-h1{
+
+h1 {
   text-align: center;
   color: #333;
   font-weight: bold;
